@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import { auth } from '../Firebase'
 
-const Login = () => {
+const Login = ({ user }) => {
   const [email, setEmail] = useState(null)
   const [password, setPassword] = useState(null)
 
@@ -14,7 +14,7 @@ const Login = () => {
 
     return (
       <div>
-        {auth.currentUser && <Navigate to="/" replace={true} />}
+        {user && <Navigate to="/" replace={true} />}
         <form>
           <label>Email address: </label>
           <input

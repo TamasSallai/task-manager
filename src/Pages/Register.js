@@ -3,7 +3,7 @@ import { auth } from '../Firebase'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { Navigate } from 'react-router-dom'
 
-const Register = () => {
+const Register = ({ user }) => {
   const [email, setEmail] = useState(null)
   const [password, setPassword] = useState(null)
 
@@ -15,7 +15,7 @@ const Register = () => {
 
   return (
     <div>
-      {auth.currentUser && <Navigate to="/" replace={true} />}
+      {user && <Navigate to="/" replace={true} />}
       <form>
         <label>Email address: </label>
         <input
