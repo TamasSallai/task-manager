@@ -1,24 +1,21 @@
 import React, { useState } from 'react'
 import { auth } from '../Firebase'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { Navigate } from 'react-router-dom'
 
 const Register = () => {
   const [email, setEmail] = useState(null)
   const [password, setPassword] = useState(null)
 
   const handleRegister = async () => {
-    await createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user
-        console.log(user)
-      })
-      .catch((e) => {
-        console.log(e)
-      })
+    await createUserWithEmailAndPassword(auth, email, password).catch((e) => {
+      console.log(e)
+    })
   }
 
   return (
     <div>
+      {auth.currentUser && <Navigate to="/" replace={true} />}
       <form>
         <label>Email address: </label>
         <input
