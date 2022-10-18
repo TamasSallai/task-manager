@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from '../Components/Button'
 import { auth } from '../Firebase'
 
 const Home = () => {
@@ -13,7 +14,12 @@ const Home = () => {
         <div>
           <div>Logged in as: {auth.currentUser.email}</div>
           <br />
-          <button onClick={handleLogOut}>Logout</button>
+          <Button
+            id="logout-button"
+            text="Logout"
+            onClick={handleLogOut}
+            type="button"
+          />
         </div>
       )}
     </div>

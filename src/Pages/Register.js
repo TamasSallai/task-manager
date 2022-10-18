@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { auth } from '../Firebase'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { Navigate } from 'react-router-dom'
+import Button from '../Components/Button'
 
 const Register = ({ user }) => {
   const [email, setEmail] = useState(null)
@@ -29,9 +30,12 @@ const Register = ({ user }) => {
           name="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="button" onClick={handleRegister}>
-          Register
-        </button>
+        <Button
+          text="Register"
+          onClick={handleRegister}
+          id="register-button"
+          type="button"
+        />
       </form>
     </div>
   )
